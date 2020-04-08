@@ -65,10 +65,10 @@ def get_pos(text):
 
 
 def get_pos_for_texts(all_texts):
-    poses1 = []
+    poses = []
     for text in all_texts:
-        poses1.append(get_pos(text))
-    return poses1
+        poses.append(get_pos(text))
+    return poses
 
 
 def get_punct(text):
@@ -83,10 +83,10 @@ def get_punct(text):
 
 
 def get_punct_for_texts(all_texts):
-    puct1 = []
+    punct = []
     for text in all_texts:
-        puct1.append(get_punct(text))
-    return puct1
+        punct.append(get_punct(text))
+    return punct
 
 
 def print_stat(predicted, test_data):
@@ -131,9 +131,10 @@ test_poses = get_pos_for_texts(test_data.values)
 test_punct = get_punct_for_texts(test_data.values)
 
 # Тренируем модель
-print("---Train for all---")
+print("--- Train for all ---")
 rfc = RandomForestClassifier(max_depth=20)
-rfc.fit(poses.append(bag_of_words).append(punct), df['label'])
+vect = poses.append(bag_of_words).append(punct)
+rfc.fit(vect, df['label'])
 
 # Применяем модель к текстовым текстам
 print("--- PREDICT ---")
@@ -142,7 +143,7 @@ predicted = rfc.predict(test_poses.append(test_bag_of_words).append(test_punct))
 print_stat(predicted, test_data)
 
 # Тренируем модель
-print("---Train without bow---")
+print("--- Train without bow ---")
 rfc = RandomForestClassifier(max_depth=20)
 rfc.fit(poses.append(punct), df['label'])
 
@@ -153,7 +154,7 @@ predicted = rfc.predict(test_poses.append(test_punct))
 print_stat(predicted, test_data)
 
 # Тренируем модель
-print("---Train without pos---")
+print("--- Train without pos ---")
 rfc = RandomForestClassifier(max_depth=20)
 rfc.fit(punct.append(bag_of_words), df['label'])
 
@@ -164,7 +165,7 @@ predicted = rfc.predict(test_punct.append(test_bag_of_words))
 print_stat(predicted, test_data)
 
 # Тренируем модель
-print("---Train without pucto---")
+print("--- Train without pucto ---")
 rfc = RandomForestClassifier(max_depth=20)
 rfc.fit(poses.append(bag_of_words), df['label'])
 
