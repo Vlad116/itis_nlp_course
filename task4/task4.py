@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import morph
 import pymorphy2
 import pandas
@@ -5,18 +6,18 @@ from sklearn.linear_model import LogisticRegression
 
 morgh = pymorphy2.MorphAnalyzer()
 
-#считали из файла
+#СЃС‡РёС‚Р°Р»Рё РёР· С„Р°Р№Р»Р°
 df = pandas.read_csv("task4/films.csv", encoding="utf-8")
 
-# текстовые данные
-valid = df["title"].isin(['Матрица', "1+1", "Хоббит: Нежданное путешествие"])
+# С‚РµРєСЃС‚РѕРІС‹Рµ РґР°РЅРЅС‹Рµ
+valid = df["title"].isin(['РњР°С‚СЂРёС†Р°', "1+1", "РҐРѕР±Р±РёС‚: РќРµР¶РґР°РЅРЅРѕРµ РїСѓС‚РµС€РµСЃС‚РІРёРµ"])
 test = df[valid]
 del test['title']
 
-# удалили наши данные(оставили данные для обучения)
-df = df.loc[df['title'] != "Матрица"]
+# СѓРґР°Р»РёР»Рё РЅР°С€Рё РґР°РЅРЅС‹Рµ(РѕСЃС‚Р°РІРёР»Рё РґР°РЅРЅС‹Рµ РґР»СЏ РѕР±СѓС‡РµРЅРёСЏ)
+df = df.loc[df['title'] != "РњР°С‚СЂРёС†Р°"]
 df = df.loc[df['title'] != "1+1"]
-df = df.loc[df['title'] != "Хоббит: Нежданное путешествие"]
+df = df.loc[df['title'] != "РҐРѕР±Р±РёС‚: РќРµР¶РґР°РЅРЅРѕРµ РїСѓС‚РµС€РµСЃС‚РІРёРµ"]
 del df['title']
 
 # f = open("task4.txt",'w')
