@@ -28,7 +28,6 @@ def get_text_in_normal_form(text):
         normalized_words.append(analyzer.parse(token)[0].normal_form)
     return normalized_words
 
-
 def get_notmalized_texts(data):
     normalized_texts = []
     i = 0
@@ -37,7 +36,6 @@ def get_notmalized_texts(data):
         normalized_texts.append(get_text_in_normal_form(elem[1]))
         i = i + 1
     return normalized_texts
-
 
 def compute_tf_idf(corpus):
     def compute_tf(text):
@@ -58,7 +56,6 @@ def compute_tf_idf(corpus):
         documents_list.append(tf_idf_dictionary)
     return documents_list
 
-
 def compute_frequency(all_text):
     frequency = {}
     for text in all_text:
@@ -66,7 +63,6 @@ def compute_frequency(all_text):
             count = frequency.get(word, 0)
             frequency[word] = count + 1
     return frequency
-
 
 def get_tf_idf_vector(tfidf_list, frequency):
     vectors = []
@@ -82,10 +78,8 @@ def get_tf_idf_vector(tfidf_list, frequency):
         print("iteration: " + str(j))
     return vectors
 
-
 def filter_by_reviews_title(data_frame, reviews_titles):
     return data_frame[~data_frame['title'].isin(reviews_titles)]
-
 
 def recall_m(y_true, y_pred):
     true_positives = ker.sum(ker.round(ker.clip(y_true * y_pred, 0, 1)))
@@ -93,13 +87,11 @@ def recall_m(y_true, y_pred):
     recall = true_positives / (possible_positives + ker.epsilon())
     return recall
 
-
 def precision_m(y_true, y_pred):
     true_positives = ker.sum(ker.round(ker.clip(y_true * y_pred, 0, 1)))
     predicted_positives = ker.sum(ker.round(ker.clip(y_pred, 0, 1)))
     precision = true_positives / (predicted_positives + ker.epsilon())
     return precision
-
 
 def f1_m(y_true, y_pred):
     precision = precision_m(y_true, y_pred)
@@ -136,6 +128,17 @@ print("--- Getting vectors ---")
 x_train_vector = get_tf_idf_vector(tf_idf_train, frequency)
 y_train_vector = get_tf_idf_vector(tf_idf_predict, frequency)
 print("--- End getting vectors ---")
+
+# # tf-idf
+# tfidf = TfidfVectorizer(max_features=500)
+# tfidf.fit_transform(reviews_training)
+# x_train_tfidf = tfidf.fit_transform(reviews_training)
+# x_test_tfidf = tfidf.fit_transform(reviews_testing)
+#
+# # building model
+# y_train_categorical = keras.utils.to_categorical(all_reviews["label"], 3)
+# y_test_categorical = keras.utils.to_categorical(y_test, 3)
+
 
 num_classes = 3
 # y_train = keras.utils.to_categorical(y_train, num_classes)
