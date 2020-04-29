@@ -14,9 +14,7 @@ import pandas
 
 max_words = 500
 batch_size = 32
-epochs = 50
-max_len = 40
-
+epochs = 30
 
 def create_embedding_matrix(filepath, word_index, embedding_dim):
     vocab_size = len(word_index) + 1  # Adding again 1 because of reserved 0 index
@@ -58,6 +56,17 @@ def f1_m(y_true, y_pred):
 df_train = pandas.read_csv("reviews.csv")
 df_test = pandas.read_csv("my_reviews.csv")
 df_val = pandas.read_csv("val.csv")
+
+max_len = 2500
+
+# for review in df_train.append(df_test).append(df_val)['text']:
+#     len_review = len(review)
+#     print(len_review)
+#     if len_review > max_len:
+#         print('change max')
+#         max_len = len_review
+#
+# print("Максимальная длина отзыва: " + str(max_len))
 
 df_train.head()
 

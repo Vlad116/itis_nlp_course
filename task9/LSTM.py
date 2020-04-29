@@ -8,11 +8,8 @@ from keras import backend as ker
 
 import pandas
 
-max_words = 500
 batch_size = 32
-epochs = 20
-max_len = 40
-
+epochs = 30
 
 def create_embedding_matrix(filepath, word_index, embedding_dim):
     vocab_size = len(word_index) + 1  # Adding again 1 because of reserved 0 index
@@ -55,6 +52,26 @@ df_train = pandas.read_csv("reviews.csv")
 df_test = pandas.read_csv("my_reviews.csv")
 df_val = pandas.read_csv("val.csv")
 
+max_len = 0
+
+for review in df_train.append(df_test).append(df_val)['text']:
+    len_review = len(review)
+    print(len_review)
+    if len_review > max_len:
+        print('change max')
+        max_len = len_review
+
+print("Максимальная длина отзыва: " + str(max_len))
+
+max_words = 0
+
+for review in df_train.append(df_test).append(df_val)['text']:
+    words = len(review.split())
+    if words > max_words:
+        max_words = words
+print('Максимальная длина описания: {} слов'.format(max_words))
+
+
 df_train.head()
 
 print("Preparing the Tokenizer...")
@@ -74,7 +91,6 @@ print('x_train shape:', x_train.shape)
 print('x_test shape:', x_test.shape)
 
 # x_train
-
 print('Convert class vector to binary class matrix '
       '(for use with categorical_crossentropy)')
 num_classes = 3
@@ -82,45 +98,6 @@ y_train = keras.utils.to_categorical(df_train["label"], num_classes)
 y_val = keras.utils.to_categorical(df_val["label"], num_classes)
 print('y_train shape:', y_train.shape)
 print('y_val shape:', y_val.shape)
-
-# y_val
-
-print('Building model sequentially')
-
-model = Sequential()
-model.add(Embedding(input_dim=max_words, output_dim=300, input_length=max_len))
-# model.add(Embedding(max_features, maxSequenceLength))
-model.add(LSTM(300, dropout=0.2, recurrent_dropout=0.2))
-model.add(Dense(num_classes, activation='sigmoid'))
-
-model.compile(loss='binary_crossentropy',
-              optimizer='adam',
-              metrics=['accuracy', f1_m, precision_m, recall_m])
-
-print(model.layers)
-
-print(model.to_yaml())
-
-history = model.fit(x_train, y_train,
-                    batch_size=batch_size,
-                    epochs=epochs,
-                    verbose=1,
-                    validation_split=0.1,
-                    # callbacks=[tensorboard, early_stopping]
-                    )
-
-loss, accuracy, f1_score, precision, recall = model.evaluate(x_val, y_val, batch_size=batch_size, verbose=1)
-
-print('\n')
-print("Test loss:", loss)
-print("Test accuracy:", accuracy)
-print("F1:", f1_score)
-print("Precision:", precision)
-print("Recall:", recall)
-
-results = model.predict(x_test, batch_size=batch_size, verbose=1)
-print(results)
-
 
 vocab_size = len(tokenizer.word_index) + 1
 
