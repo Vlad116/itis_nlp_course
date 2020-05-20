@@ -36,9 +36,9 @@ print(text)
 vocab_size = len(tokenizer.word_index)
 print(vocab_size)
 
-# Training on 19 words to predict the 20th
+# Training on 14 words to predict the 15th
 sentence_len = 15
-pred_len = 5
+pred_len = 1
 train_len = sentence_len - pred_len
 seq = []
 
