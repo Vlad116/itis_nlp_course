@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94694e27-688f-476d-b44e-bc571ed7f923" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="scrapy-microbiol-articles-crawl" />
+  </component>
+  <component name="ProjectId" id="1cOcCruOTOR1vYriAm5NKtvOcxR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vlada\PycharmProjects\scrapy-microbiol-articles-crawl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vlada\PycharmProjects\scrapy-microbiol-articles-crawl" />
+      <recent name="C:\Users\vlada\PycharmProjects\scrapy-microbiol-articles-crawl\MicrobiolCrawler\MicrobiolCrawler\spiders" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94694e27-688f-476d-b44e-bc571ed7f923" name="Default Changelist" comment="" />
+      <created>1590402955440</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590402955440</updated>
+      <workItem from="1590402958484" duration="24568000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="172" y="70" key="#Inspections" timestamp="1590404758805">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="172" y="70" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1590404758805" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1590537386007">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1590537386007" />
+  </component>
+</project>
